@@ -15,10 +15,13 @@ function getScopes(roots = ['packages', 'apps'], extra = []) {
   return Array.from(new Set([...fromRoots, ...extra])).sort();
 }
 
-// Allow to add  custom scope via ENV: COMMIT_SCOPES="repo,release"
-const extra = process.env.COMMIT_SCOPES
+// Глобальні скоупи для робіт на рівні репозиторію:
+const defaultExtra = ['repo', 'workflows', 'ci', 'release', 'docs', 'tooling'];
+
+// Додаткові скоупи через ENV: COMMIT_SCOPES="infra,security"
+const envExtra = process.env.COMMIT_SCOPES
   ? process.env.COMMIT_SCOPES.split(',').map((s) => s.trim()).filter(Boolean)
   : [];
 
-module.exports.scopes = getScopes(['packages', 'apps'], extra);
+module.exports.scopes = getScopes(['packages', 'apps'], [...defaultExtra, ...envExtra]);
 // Result example: ['app_on_bloc','app_on_riverpod','assets','core','app_bootstrap']
