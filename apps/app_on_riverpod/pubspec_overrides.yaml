@@ -1,0 +1,8 @@
+# melos_managed_dependency_overrides: app_bootstrap,core,assets
+dependency_overrides:
+  app_bootstrap:
+    path: ../../packages/app_bootstrap
+  assets:
+    path: ../../packages/assets
+  core:
+    path: ../../packages/core

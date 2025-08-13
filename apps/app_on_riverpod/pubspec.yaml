@@ -1,0 +1,31 @@
+name: app_on_riverpod
+description: Demo app (on Riverpod)
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  app_bootstrap:
+    path: ../../packages/app_bootstrap
+  assets:
+    path: ../../packages/assets
+  core:
+    path: ../../packages/core
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^2.6.1
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.4
+  very_good_analysis: ^9.0.0
+
+flutter:
+  # generate: true
+  uses-material-design: true

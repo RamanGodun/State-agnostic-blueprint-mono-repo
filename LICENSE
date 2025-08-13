@@ -1,0 +1,41 @@
+Proprietary License — Roman Godun Monorepo
+Copyright (c) 2025 Roman Godun <godun.rm@gmail.com>
+
+SCOPE
+This license applies to the entire codebase contained in this repository,
+including all applications and packages under the "apps" and "packages"
+directories, and any other files unless a file explicitly states otherwise.
+
+OWNERSHIP
+This software and all associated files (the "Code") are the intellectual
+property of Roman Godun. All rights reserved.
+
+PERMISSIONS
+No rights are granted by default. You MAY NOT use, copy, modify, merge,
+compile, execute, publish, distribute, sublicense, create derivative works,
+or sell the Code, in whole or in part, without the prior express WRITTEN
+permission of the copyright holder.
+
+EDUCATIONAL / OTHER USES
+Any use for learning, research, demonstrations, showcases, evaluations, or
+other purposes is also prohibited WITHOUT prior written permission.
+
+THIRD-PARTY COMPONENTS
+Any third-party components included in this repository remain subject to
+their respective licenses. Nothing in this license overrides those.
+
+WARRANTY DISCLAIMER
+THE CODE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL
+THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN
+AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN
+CONNECTION WITH THE CODE OR THE USE OR OTHER DEALINGS IN THE CODE.
+
+ENFORCEMENT
+Any unauthorized use of the Code constitutes infringement and may be pursued
+to the maximum extent permitted by law.
+
+PERMISSION REQUESTS
+To request permission (including for educational use), contact:
+Roman Godun — godun.rm@gmail.com (or 4l.roman.godun@gmail.com)

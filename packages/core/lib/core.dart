@@ -1,0 +1,10 @@
+export 'base_modules/animations/animation.dart';
+export 'base_modules/errors_handling/errors_handling.dart';
+export 'base_modules/form_fields/form_fields.dart';
+export 'base_modules/localization/localization.dart';
+export 'base_modules/navigation/navigation.dart';
+export 'base_modules/overlays/overlays.dart';
+export 'base_modules/theme/theme.dart';
+export 'shared_data_layer/shared_data_layer.dart';
+export 'shared_domain_layer/shared_domain_layer.dart';
+export 'shared_presentation_layer/shared_presentation_layer.dart';

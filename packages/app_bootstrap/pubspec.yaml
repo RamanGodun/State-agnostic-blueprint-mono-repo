@@ -1,0 +1,39 @@
+name: app_bootstrap
+description: A Very Good Project created by Very Good CLI.
+
+version: 0.1.0+1
+publish_to: none
+
+#
+
+environment:
+  sdk: ^3.8.0
+
+#
+#
+
+dependencies:
+  assets:
+    path: ../../packages/assets
+  bloc: ^9.0.0
+  core:
+    path: ../../packages/core
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
+#
+
+dev_dependencies:
+  mocktail: ^1.0.4
+  test: ^1.26.2
+  very_good_analysis: ^9.0.0
+
+#
+#
+
+flutter:
+  # generate: true
+  uses-material-design: true
