@@ -1,0 +1,105 @@
+name: Lint PR title
+
+on:
+  pull_request_target:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  pull-requests: read
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.sha || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  pr-title:
+    name: Validate PR title (Conventional + VAGO + Artifact)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title
+        id: lint
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            perf
+            refactor
+            docs
+            test
+            build
+            ci
+            chore
+          scopes: |
+            .*
+          # Вимагаємо VAGO-ID у дужках у кінці заголовка
+          subjectPattern: '.*\(VAGO-\d+\)$'
+          subjectPatternError: |
+            Subject must end with a task ID like "(VAGO-123)".
+
+      - name: Extract parsed parts to file
+        if: ${{ always() }} # маємо артефакт навіть якщо попередній крок упав
+        shell: bash
+        run: |
+          set -euo pipefail
+          TITLE="${{ github.event.pull_request.title }}"
+
+          # VAGO-ID з кінця "(VAGO-123)"
+          VAGO_ID=""
+          if [[ "$TITLE" =~ \(VAGO-([0-9]+)\)$ ]]; then
+            VAGO_ID="VAGO-${BASH_REMATCH[1]}"
+          fi
+
+          # Conventional header: type(scope)?: subject
+          TYPE=""
+          SCOPE=""
+          SUBJECT="$TITLE"
+          if [[ "$TITLE" =~ ^([a-zA-Z]+)(\(([^\)]+)\))?:\ (.*)$ ]]; then
+            TYPE="${BASH_REMATCH[1]}"
+            SCOPE="${BASH_REMATCH[3]}"
+            SUBJECT="${BASH_REMATCH[4]}"
+          fi
+
+          jq -n \
+            --arg title   "$TITLE" \
+            --arg type    "$TYPE" \
+            --arg scope   "$SCOPE" \
+            --arg subject "$SUBJECT" \
+            --arg vagoId  "$VAGO_ID" \
+            '{title:$title,type:$type,scope:$scope,subject:$subject,vagoId:$vagoId}' > pr-title.json
+
+          {
+            echo "### PR Title Check"
+            echo ""
+            echo "| Field   | Value |"
+            echo "|--------|-------|"
+            echo "| Title  | $TITLE |"
+            echo "| Type   | ${TYPE:-–} |"
+            echo "| Scope  | ${SCOPE:-–} |"
+            echo "| Subject| ${SUBJECT:-–} |"
+            echo "| VAGO   | ${VAGO_ID:-–} |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload PR title artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-title-metadata
+          path: pr-title.json
+
+      - name: Comment with error
+        if: always() && (steps.lint.outputs.error_message != null)
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pr-title-lint-error
+          message: |
+            Please update the PR title to follow Conventional Commits and include a VAGO ID at the end, e.g.:
+            `feat(auth): enable Sign in with Apple (VAGO-123)`
+
+            Details:
+            ```
+            ${{ steps.lint.outputs.error_message }}
+            ```

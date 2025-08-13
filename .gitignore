@@ -17,8 +17,8 @@ pubspec.lock
 # analysis_options.yaml
 
 # 🟢 Platform Folders
-android/
-ios/
+# android/
+# ios/
 linux/
 macos/
 web/
@@ -92,7 +92,7 @@ out/
 # 🟣 Git files
 .gitignore
 .metadata
-**/.github/
+# **/.github/
 
 # 🟤 Others
 *.log

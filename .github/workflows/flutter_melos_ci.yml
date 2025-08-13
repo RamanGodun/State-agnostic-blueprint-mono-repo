@@ -1,0 +1,63 @@
+name: flutter_melos_ci
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/**"
+      - "packages/**"
+      - ".github/workflows/flutter_melos_ci.yml"
+      - "melos.yaml"
+      - "**/pubspec.yaml"
+  push:
+    branches: [main]
+    paths:
+      - "apps/**"
+      - "packages/**"
+      - ".github/workflows/flutter_melos_ci.yml"
+      - "melos.yaml"
+      - "**/pubspec.yaml"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Dart pub cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.pub-cache
+          key: pub-${{ runner.os }}-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            pub-${{ runner.os }}-
+
+      - name: Melos bootstrap
+        run: |
+          dart pub global activate melos
+          melos bootstrap
+
+      # швидка перевірка тільки змінених пакетів (опційно)
+      # - name: List changed packages
+      #   run: melos list --since=origin/main
+
+      - name: Format check
+        run: melos run format:check
+
+      - name: Analyze
+        run: melos run analyze
+
+      - name: Tests
+        run: melos run test

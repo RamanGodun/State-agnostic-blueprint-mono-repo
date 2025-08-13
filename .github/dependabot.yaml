@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/site"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "pub"
+    directory: "/bricks/test_optimizer/hooks"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/tool/spdx_license/hooks"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/e2e"
+    schedule:
+      interval: "daily"
