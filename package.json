@@ -1,0 +1,38 @@
+{
+
+  "name": "tooling-root",
+  "private": true,
+
+  "scripts": {
+    "prepare": "husky",
+    "commit": "cz",
+    "format": "dart format .",
+    "lint": "dart analyze --fatal-infos --fatal-warnings",
+    "commitlint:last": "commitlint --from=HEAD~1 --to=HEAD"
+  },
+
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2"
+  },
+
+  "lint-staged": {
+    "**/*.dart": [
+      "dart format -o none --set-exit-if-changed",
+      "dart analyze --fatal-infos --fatal-warnings"
+    ],
+    "**/*.{yml,yaml,md,json}": [
+     "prettier --write"
+   ]
+  },
+
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

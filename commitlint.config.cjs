@@ -1,6 +1,4 @@
 /** @type {import('@commitlint/types').UserConfig} */
-
-
 const { scopes } = require('./scripts/commitlint.scopes.cjs');
 
 module.exports = {
