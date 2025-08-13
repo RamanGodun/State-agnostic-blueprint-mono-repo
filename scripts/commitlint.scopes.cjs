@@ -1,11 +1,24 @@
 const fs = require('fs');
 const path = require('path');
 
-function getPackageDirs(root = 'packages') {
-  const rootPath = path.resolve(process.cwd(), root);
-  if (!fs.existsSync(rootPath)) return [];
-  return fs.readdirSync(rootPath)
-    .filter((name) => fs.statSync(path.join(rootPath, name)).isDirectory());
+function listDirs(root) {
+  const abs = path.resolve(process.cwd(), root);
+  if (!fs.existsSync(abs)) return [];
+  return fs
+    .readdirSync(abs, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && !d.name.startsWith('.'))
+    .map((d) => d.name);
 }
 
-module.exports.scopes = getPackageDirs(); // e.g. ['core', 'assets', 'app_bootstrap']
+function getScopes(roots = ['packages', 'apps'], extra = []) {
+  const fromRoots = roots.flatMap((r) => listDirs(r));
+  return Array.from(new Set([...fromRoots, ...extra])).sort();
+}
+
+// Allow to add  custom scope via ENV: COMMIT_SCOPES="repo,release"
+const extra = process.env.COMMIT_SCOPES
+  ? process.env.COMMIT_SCOPES.split(',').map((s) => s.trim()).filter(Boolean)
+  : [];
+
+module.exports.scopes = getScopes(['packages', 'apps'], extra);
+// Result example: ['app_on_bloc','app_on_riverpod','assets','core','app_bootstrap']
