@@ -6,8 +6,6 @@ by **layers** (data / domain / presentation) to keep code modular, reusable, and
 
 ---
 
-
-
 ## Installation
 
 Add `core` to your app via a local path:
@@ -47,10 +45,12 @@ core/lib
    ├─ overlays/          ── overlays_barrel.dart
    └─ theme/             ── theme_barrel.dart
 
-shared_data_layer/
-shared_domain_layer/
-shared_presentation_layer/
-utils_shared/
+├─ shared_data_layer/
+├─ shared_domain_layer/
+├─ shared_presentation_layer/
+├─ utils_shared/
+|
+└─core_barrel.dart
 ```
 
 ---
@@ -171,8 +171,8 @@ We follow **SemVer**: `MAJOR.MINOR.PATCH`. Keep a `CHANGELOG.md` in the package 
 ---
 
 ## License
-This package is licensed under the same terms as the [root LICENSE](../../LICENSE) of this monorepo.
 
+This package is licensed under the same terms as the [root LICENSE](../../LICENSE) of this monorepo.
 
 ---
 
@@ -181,6 +181,3 @@ This package is licensed under the same terms as the [root LICENSE](../../LICENS
 - [ ] Consolidate essential helpers in `utils_shared`.
 - [ ] Add integration examples for each module.
 - [ ] Wire up unified coverage in CI if needed.
-
-
-
