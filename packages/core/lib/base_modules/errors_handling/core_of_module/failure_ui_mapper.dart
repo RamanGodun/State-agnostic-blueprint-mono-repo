@@ -1,6 +1,10 @@
 import 'package:core/base_modules/errors_handling/core_of_module/failure_entity.dart';
 import 'package:core/base_modules/errors_handling/core_of_module/failure_ui_entity.dart';
 import 'package:core/base_modules/errors_handling/extensible_part/failure_extensions/failure_icons_x.dart';
+import 'package:core/base_modules/localization/core_of_module/init_localization.dart'
+    show AppLocalizer;
+import 'package:core/base_modules/localization/utils/localization_logger.dart'
+    show LocalizationLogger;
 
 /// ✅ [FailureToUIEntityX] — Maps domain-level [Failure] to a presentational [FailureUIEntity]
 /// ✅ Provides safe localization fallback and diagnostics logging
@@ -9,15 +13,10 @@ import 'package:core/base_modules/errors_handling/extensible_part/failure_extens
 extension FailureToUIEntityX on Failure {
   ///
   FailureUIEntity toUIEntity() {
-    // final hasTranslation = type.translationKey.isNotEmpty;
+    final hasTranslation = type.translationKey.isNotEmpty;
     final hasMessage = message?.isNotEmpty ?? false;
 
-    /// ! 🧩 Resolved text without localization (after will be deleted)
-    final resolvedText = hasMessage ? message! : type.code;
-
-    /*
-    ! restore after adding localization module:
-
+    /// 🧩 Resolved text with localization and fallback
     final resolvedText = switch ((hasTranslation, hasMessage)) {
       (true, true) => AppLocalizer.translateSafely(
         type.translationKey,
@@ -31,8 +30,6 @@ extension FailureToUIEntityX on Failure {
     if (hasTranslation && resolvedText == message) {
       LocalizationLogger.fallbackUsed(type.translationKey, message!);
     }
-
- */
 
     return FailureUIEntity(
       localizedMessage: resolvedText,
