@@ -27,7 +27,7 @@ abstract final class LocalizationWrapper {
   /// 🏗️ [configure] — Wraps a widget with [EasyLocalization].
   ///     Injects supported locales, fallback locale, translation path, and asset loader.
   ///     Ensures that any widget tree below has full localization context.
-  ///     Call this **once** at the top-level (see 'AppLocalizationShell').
+  ///     Call this **once** at the top-level (see `[AppLocalizationShell]`).
   static Widget configure(Widget child) {
     return EasyLocalization(
       supportedLocales: supportedLocales,

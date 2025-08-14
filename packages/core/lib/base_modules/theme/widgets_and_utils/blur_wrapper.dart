@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:core/base_modules/overlays/enums_for_overlay_module.dart'
+import 'package:core/base_modules/overlays/core/enums_for_overlay_module.dart'
     show ShowAs;
 import 'package:core/base_modules/theme/ui_constants/_app_constants.dart';
 import 'package:core/base_modules/theme/widgets_and_utils/extensions/theme_x.dart';

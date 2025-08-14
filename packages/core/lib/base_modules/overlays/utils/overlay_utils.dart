@@ -1,3 +1,5 @@
+import 'package:core/_should_be_removed_later/di_container/read_di_x_on_context.dart';
+import 'package:core/base_modules/overlays/overlays_dispatcher/overlay_dispatcher_provider.dart';
 import 'package:flutter/material.dart';
 
 /// 🛠️ [OverlayUtils] — utility class for overlay-related helpers
@@ -9,10 +11,9 @@ abstract final class OverlayUtils {
 
   /// 🔁 Dismisses the currently visible overlay (if any) and executes [action]
   static VoidCallback dismissAndRun(VoidCallback action, BuildContext context) {
+    //
     return () {
-      // final dispatcher = context.readDI(overlayDispatcherProvider);
-      // dispatcher.dismissCurrent(force: true);
-      //
+      context.readDI(overlayDispatcherProvider).dismissCurrent(force: true);
       action.call();
     };
   }

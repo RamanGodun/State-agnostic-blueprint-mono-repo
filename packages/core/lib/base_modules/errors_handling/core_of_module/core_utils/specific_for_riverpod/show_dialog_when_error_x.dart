@@ -5,10 +5,10 @@ import 'package:core/base_modules/localization/core_of_module/init_localization.
     show AppLocalizer;
 import 'package:core/base_modules/localization/generated/locale_keys.g.dart'
     show LocaleKeys;
-import 'package:core/base_modules/overlays/_context_x_for_overlays.dart';
-import 'package:core/base_modules/overlays/enums_for_overlay_module.dart'
+import 'package:core/base_modules/overlays/core/_context_x_for_overlays.dart';
+import 'package:core/base_modules/overlays/core/enums_for_overlay_module.dart'
     show ShowAs;
-import 'package:core/base_modules/overlays/overlay_utils.dart'
+import 'package:core/base_modules/overlays/utils/overlay_utils.dart'
     show OverlayUtils;
 import 'package:core/utils_shared/type_definitions.dart';
 import 'package:flutter/material.dart' show BuildContext, VoidCallback;

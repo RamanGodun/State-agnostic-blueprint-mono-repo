@@ -1,7 +1,7 @@
 import 'package:core/base_modules/localization/core_of_module/init_localization.dart';
 import 'package:core/base_modules/localization/generated/locale_keys.g.dart'
     show LocaleKeys;
-import 'package:core/base_modules/overlays/_context_x_for_overlays.dart';
+import 'package:core/base_modules/overlays/core/_context_x_for_overlays.dart';
 import 'package:core/base_modules/theme/module_core/theme_variants.dart';
 import 'package:core/base_modules/theme/theme_providers_or_cubits/theme_provider.dart';
 import 'package:core/base_modules/theme/ui_constants/_app_constants.dart';

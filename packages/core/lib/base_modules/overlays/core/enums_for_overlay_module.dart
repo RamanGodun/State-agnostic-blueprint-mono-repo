@@ -1,10 +1,10 @@
+// 📌 No need for public API docs.
+// ignore_for_file: public_member_api_docs
+
 /// 🔺 Priority levels for overlays (used for conflict resolution)
-library;
 // ⬇️ Least important, can be dropped easily
 // 🔼 Important, takes precedence over lower ones
 //
-// ignore_for_file: public_member_api_docs
-
 enum OverlayPriority { userDriven, normal, high, critical }
 
 ////

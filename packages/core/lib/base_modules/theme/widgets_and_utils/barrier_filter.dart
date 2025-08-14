@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:core/base_modules/overlays/enums_for_overlay_module.dart'
+import 'package:core/base_modules/overlays/core/enums_for_overlay_module.dart'
     show OverlayBlurLevel, ShowAs;
 import 'package:core/base_modules/theme/ui_constants/app_colors.dart';
 import 'package:flutter/material.dart';
