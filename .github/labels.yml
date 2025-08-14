@@ -1,4 +1,0 @@
-- name: "platform: windows"
-  color: "78EFFF"
-  description: Building on or for Windows specifically
-  aliases: [windows]

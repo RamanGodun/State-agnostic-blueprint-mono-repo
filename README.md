@@ -55,7 +55,7 @@ add here...
 
 ### 🧾 ADR / Architecture Philosophy
 
-See [`ADR.md`](my_docs_site/docs/ADR/ADR.md) for:
+See [`ADR.md`](ADR/ADR.md) for:
 - ...
 
 

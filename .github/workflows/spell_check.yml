@@ -1,0 +1,16 @@
+name: spell-check
+on:
+  pull_request:
+    paths:
+      - "**/*.md"
+      - ".github/**"
+jobs:
+  spell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Run cspell
+        uses: streetsidesoftware/cspell-action@v6
+        with:
+          files: "**/*.md"
+          # без config; можна додати ignorePaths, якщо треба

@@ -1,26 +1,42 @@
 version: 2
 updates:
+  # 1) GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
-  - package-ecosystem: "npm"
-    directory: "/site"
-    schedule:
       interval: "weekly"
-  - package-ecosystem: "pub"
-    directory: "/bricks/test_optimizer/hooks"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "/tool/spdx_license/hooks"
-    schedule:
-      interval: "daily"
+      #
+
+  # 2) Dart pub – workspace root
   - package-ecosystem: "pub"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      #
+
+  # 3) Every package separate
   - package-ecosystem: "pub"
-    directory: "/e2e"
+    directory: "/packages/app_bootstrap"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+
+  - package-ecosystem: "pub"
+    directory: "/packages/assets"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "pub"
+    directory: "/packages/core"
+    schedule:
+      interval: "weekly"
+      #
+
+    # 4) Apps separately
+  - package-ecosystem: "pub"
+    directory: "/apps/app_on_bloc"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "pub"
+    directory: "/apps/app_on_riverpod"
+    schedule:
+      interval: "weekly"

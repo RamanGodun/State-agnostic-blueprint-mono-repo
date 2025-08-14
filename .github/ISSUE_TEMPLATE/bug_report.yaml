@@ -1,39 +1,82 @@
 name: Bug Report
 description: Create a report to help us improve
-title: "fix: "
 labels: [bug]
 body:
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: Affected package/module in the monorepo
+      options:
+        - core
+        - assets
+        - app_bootstrap
+        - repo
+    validations:
+      required: true
+
+  - type: input
+    id: vago
+    attributes:
+      label: Task ID (optional)
+      description: Link to tracker task, e.g. VAGO-123
+      placeholder: VAGO-123
+
   - type: textarea
     id: description
     attributes:
-      label: Description
-      description: A clear and concise description of what the bug is.
-      placeholder: "Describe the bug."
+      label: What happened?
+      description: Clear, concise description of the bug.
+      placeholder: The app crashes when ...
     validations:
       required: true
+
   - type: textarea
-    id: setps-to-reproduce
+    id: steps
     attributes:
-      label: Steps To Reproduce
-      description: A set of instructions, step by step, explaining how to reproduce the bug.
+      label: Steps to Reproduce
+      description: Be precise. Include data, account, environment.
       placeholder: |
-        1. Go to '...'
-        2. Click on '....'
-        3. Scroll down to '....'
-        4. See error
+        1. Open ...
+        2. Tap ...
+        3. See error ...
     validations:
       required: true
+
   - type: textarea
-    id: expected-behavior
+    id: expected
     attributes:
-      label: Expected Behavior
-      description: A clear and concise description of what you expected to happen.
-      placeholder: "Describe what you expected to happen."
+      label: Expected behavior
+      placeholder: It should ...
     validations:
       required: true
+
   - type: textarea
-    id: additional-context
+    id: env
     attributes:
-      label: Additional Context
-      description: Add any other context, including links/screenshots/video recordings/etc about the problem here.
-      placeholder: "Provide context here."
+      label: Environment
+      placeholder: |
+        Flutter: x.x.x (channel stable)
+        Platform: iOS/Android/Web
+        Device/OS: ...
+        App version: ...
+        Affected paths: packages/<name>/...
+    validations:
+      required: false
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Logs / Screenshots / Video
+      placeholder: Paste logs or attach files
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      options:
+        - label: Repro steps covered by tests where reasonable
+        - label: CI green (format, analyze, tests)
+        - label: Linked PR references this issue

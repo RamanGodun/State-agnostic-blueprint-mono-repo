@@ -16,6 +16,11 @@ jobs:
   pr-title:
     name: Validate PR title (Conventional + VAGO + Artifact)
     runs-on: ubuntu-latest
++   if: >
++     github.actor != 'dependabot[bot]' &&
++     github.actor != 'renovate[bot]' &&
++     github.actor != 'release-please[bot]'
+
     steps:
       - name: Check PR title
         id: lint
@@ -35,7 +40,6 @@ jobs:
             chore
           scopes: |
             .*
-          # Вимагаємо VAGO-ID у дужках у кінці заголовка
           subjectPattern: '.*\(VAGO-\d+\)$'
           subjectPatternError: |
             Subject must end with a task ID like "(VAGO-123)".

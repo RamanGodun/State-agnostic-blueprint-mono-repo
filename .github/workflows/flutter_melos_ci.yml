@@ -22,6 +22,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
++permissions:
++  contents: read
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -46,12 +49,16 @@ jobs:
 
       - name: Melos bootstrap
         run: |
-          dart pub global activate melos
+-         dart pub global activate melos
++         dart pub global activate melos ^6
           melos bootstrap
 
-      # швидка перевірка тільки змінених пакетів (опційно)
-      # - name: List changed packages
-      #   run: melos list --since=origin/main
+-     # fast check of vhanged packages
+-     - name: List changed packages
+-       run: melos list --since=origin/main
++     # fast check of changed packages (optional; can fail on forks without origin/main)
++     # - name: List changed packages
++     #   run: melos list --since=origin/main || true
 
       - name: Format check
         run: melos run format:check

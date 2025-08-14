@@ -1,3 +1,10 @@
-# Every request must be reviewed and accepted by:
+# Every change in these paths requires review from owners
 
-* @Roman Godun
+# All Dart workspace (apps + packages)
+apps/**     @RomanGodun
+packages/** @RomanGodun
+
+# Repo-level infra
+.github/**  @RomanGodun
+melos.yaml  @RomanGodun
+pubspec.yaml @RomanGodun
