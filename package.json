@@ -19,7 +19,7 @@
   },
   "lint-staged": {
     "**/*.dart": [
-      "dart format -o none --set-exit-if-changed"
+      "dart format"
     ],
     "**/*.{yml,yaml,md,json}": [
       "prettier --write"

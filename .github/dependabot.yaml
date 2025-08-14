@@ -5,38 +5,68 @@
 #     directory: "/"
 #     schedule:
 #       interval: "weekly"
-#       #
+#     open-pull-requests-limit: 2
+#     groups:
+#       gha-minor-patch:
+#         patterns:
+#           - "*"
+#         update-types:
+#           - "minor"
+#           - "patch"
 
-#   # 2) Dart pub – workspace root
+#   # 2) Dart pub — тільки корінь робочої області (melos workspace)
 #   - package-ecosystem: "pub"
 #     directory: "/"
 #     schedule:
 #       interval: "weekly"
-#       #
+#     open-pull-requests-limit: 2
+#     # Для публічного демо часто достатньо lockfile-only. Якщо хочеш апгрейд маніфестів — прибери це.
+#     versioning-strategy: "lockfile-only"
+#     groups:
+#       dart-minor-patch:
+#         patterns:
+#           - "*"
+#         update-types:
+#           - "minor"
+#           - "patch"
 
-#   # 3) Every package separate
-#   - package-ecosystem: "pub"
-#     directory: "/packages/app_bootstrap"
-#     schedule:
-#       interval: "weekly"
-
-#   - package-ecosystem: "pub"
-#     directory: "/packages/assets"
-#     schedule:
-#       interval: "weekly"
-
+#   # 3) Core пакет (залишаємо окремо, бо критичний)
 #   - package-ecosystem: "pub"
 #     directory: "/packages/core"
 #     schedule:
 #       interval: "weekly"
-#       #
+#     open-pull-requests-limit: 2
+#     groups:
+#       core-minor-patch:
+#         patterns:
+#           - "*"
+#         update-types:
+#           - "minor"
+#           - "patch"
 
-#     # 4) Apps separately
+#   # 4) Apps — АБО прибери їх зовсім, АБО лиши з групуванням
 #   - package-ecosystem: "pub"
 #     directory: "/apps/app_on_bloc"
 #     schedule:
 #       interval: "weekly"
+#     open-pull-requests-limit: 1
+#     groups:
+#       app-bloc-minor-patch:
+#         patterns:
+#           - "*"
+#         update-types:
+#           - "minor"
+#           - "patch"
+
 #   - package-ecosystem: "pub"
 #     directory: "/apps/app_on_riverpod"
 #     schedule:
 #       interval: "weekly"
+#     open-pull-requests-limit: 1
+#     groups:
+#       app-riverpod-minor-patch:
+#         patterns:
+#           - "*"
+#         update-types:
+#           - "minor"
+#           - "patch"
