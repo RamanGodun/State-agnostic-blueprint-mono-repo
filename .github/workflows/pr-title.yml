@@ -16,10 +16,10 @@ jobs:
   pr-title:
     name: Validate PR title (Conventional + VAGO + Artifact)
     runs-on: ubuntu-latest
-+   if: >
-+     github.actor != 'dependabot[bot]' &&
-+     github.actor != 'renovate[bot]' &&
-+     github.actor != 'release-please[bot]'
+    if: >
+      github.actor != 'dependabot[bot]' &&
+      github.actor != 'renovate[bot]' &&
+      github.actor != 'release-please[bot]'
 
     steps:
       - name: Check PR title
@@ -45,19 +45,15 @@ jobs:
             Subject must end with a task ID like "(VAGO-123)".
 
       - name: Extract parsed parts to file
-        if: ${{ always() }} # маємо артефакт навіть якщо попередній крок упав
+        if: ${{ always() }}
         shell: bash
         run: |
           set -euo pipefail
           TITLE="${{ github.event.pull_request.title }}"
-
-          # VAGO-ID з кінця "(VAGO-123)"
           VAGO_ID=""
           if [[ "$TITLE" =~ \(VAGO-([0-9]+)\)$ ]]; then
             VAGO_ID="VAGO-${BASH_REMATCH[1]}"
           fi
-
-          # Conventional header: type(scope)?: subject
           TYPE=""
           SCOPE=""
           SUBJECT="$TITLE"
@@ -66,7 +62,6 @@ jobs:
             SCOPE="${BASH_REMATCH[3]}"
             SUBJECT="${BASH_REMATCH[4]}"
           fi
-
           jq -n \
             --arg title   "$TITLE" \
             --arg type    "$TYPE" \

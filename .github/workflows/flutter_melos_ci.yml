@@ -22,8 +22,8 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-+permissions:
-+  contents: read
+permissions:
+  contents: read
 
 jobs:
   ci:
@@ -31,7 +31,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -47,18 +47,15 @@ jobs:
           restore-keys: |
             pub-${{ runner.os }}-
 
-      - name: Melos bootstrap
-        run: |
--         dart pub global activate melos
-+         dart pub global activate melos ^6
-          melos bootstrap
+      - name: Install Melos
+        run: dart pub global activate melos
 
--     # fast check of vhanged packages
--     - name: List changed packages
--       run: melos list --since=origin/main
-+     # fast check of changed packages (optional; can fail on forks without origin/main)
-+     # - name: List changed packages
-+     #   run: melos list --since=origin/main || true
+      - name: Melos bootstrap
+        run: melos bootstrap
+
+      # опціонально, якщо origin/main відсутній у форках — пропускаємо
+      # - name: List changed packages
+      #   run: melos list --since=origin/main || true
 
       - name: Format check
         run: melos run format:check

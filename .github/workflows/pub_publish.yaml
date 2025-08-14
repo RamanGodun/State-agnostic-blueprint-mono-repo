@@ -12,7 +12,9 @@ jobs:
   publish:
     permissions:
       id-token: write
+      contents: read
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         include:
@@ -22,14 +24,23 @@ jobs:
           - pkg: assets
             path: packages/assets
             tag_prefix: assets-v
-    if: startsWith(github.ref_name, matrix.tag_prefix)
-    defaults:
-      run:
-        working-directory: ${{ matrix.path }}
+
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
+
       - uses: dart-lang/setup-dart@v1
-      - name: Install Dependencies
+
+      # Пропускаємо дану ітерацію матриці, якщо тег не її префіксу
+      - name: Skip if tag doesn't match this matrix
+        if: ${{ !startsWith(github.ref_name, matrix.tag_prefix) }}
+        run: echo "Tag '${{ github.ref_name }}' doesn't match '${{ matrix.tag_prefix }}'. Skipping."
+
+      - name: Install dependencies
+        if: ${{ startsWith(github.ref_name, matrix.tag_prefix) }}
+        working-directory: ${{ matrix.path }}
         run: dart pub get
-      - name: Publish
+
+      - name: Publish to pub.dev
+        if: ${{ startsWith(github.ref_name, matrix.tag_prefix) }}
+        working-directory: ${{ matrix.path }}
         run: dart pub publish --force
