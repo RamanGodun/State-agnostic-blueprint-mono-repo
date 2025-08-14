@@ -1,42 +1,42 @@
-version: 2
-updates:
-  # 1) GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      #
+# version: 2
+# updates:
+#   # 1) GitHub Actions
+#   - package-ecosystem: "github-actions"
+#     directory: "/"
+#     schedule:
+#       interval: "weekly"
+#       #
 
-  # 2) Dart pub – workspace root
-  - package-ecosystem: "pub"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      #
+#   # 2) Dart pub – workspace root
+#   - package-ecosystem: "pub"
+#     directory: "/"
+#     schedule:
+#       interval: "weekly"
+#       #
 
-  # 3) Every package separate
-  - package-ecosystem: "pub"
-    directory: "/packages/app_bootstrap"
-    schedule:
-      interval: "weekly"
+#   # 3) Every package separate
+#   - package-ecosystem: "pub"
+#     directory: "/packages/app_bootstrap"
+#     schedule:
+#       interval: "weekly"
 
-  - package-ecosystem: "pub"
-    directory: "/packages/assets"
-    schedule:
-      interval: "weekly"
+#   - package-ecosystem: "pub"
+#     directory: "/packages/assets"
+#     schedule:
+#       interval: "weekly"
 
-  - package-ecosystem: "pub"
-    directory: "/packages/core"
-    schedule:
-      interval: "weekly"
-      #
+#   - package-ecosystem: "pub"
+#     directory: "/packages/core"
+#     schedule:
+#       interval: "weekly"
+#       #
 
-    # 4) Apps separately
-  - package-ecosystem: "pub"
-    directory: "/apps/app_on_bloc"
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "pub"
-    directory: "/apps/app_on_riverpod"
-    schedule:
-      interval: "weekly"
+#     # 4) Apps separately
+#   - package-ecosystem: "pub"
+#     directory: "/apps/app_on_bloc"
+#     schedule:
+#       interval: "weekly"
+#   - package-ecosystem: "pub"
+#     directory: "/apps/app_on_riverpod"
+#     schedule:
+#       interval: "weekly"

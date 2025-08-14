@@ -14,7 +14,7 @@ indent_size = 2
 [*.{dart}]
 indent_style = space
 indent_size = 2
-max_line_length = 100
+max_line_length = 120
 
 # YAML (pubspec.yaml, melos.yaml, ci yml)
 [*.{yml,yaml}]

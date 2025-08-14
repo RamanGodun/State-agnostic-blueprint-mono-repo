@@ -10,6 +10,8 @@ linter:
     prefer_const_literals_to_create_immutables: true
     # Allow omitting curly braces in single-line control flow statements
     curly_braces_in_flow_control_structures: false
+    # Allow lines up to 120 characters
+    lines_longer_than_80_chars: false
     #
 
     #
@@ -27,7 +29,6 @@ custom_lint:
     generated_provider_dependency: false
     #
     #
-
 
 # Analyzer configuration
 # ----------------------

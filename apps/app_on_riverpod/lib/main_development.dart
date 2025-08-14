@@ -7,7 +7,6 @@
 import 'package:app_bootstrap/bootstrap.dart' show bootstrap;
 import 'package:app_on_riverpod/app.dart' show App;
 
-
 /// 🏁 Application entry point
 //
 void main() {

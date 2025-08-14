@@ -1,0 +1,12 @@
+generate_tests: false
+no_comments: true
+export: true
+use_part_of: false
+
+package: core/app_config/spider
+
+groups:
+  - path: assets/images
+    class_name: AppImages
+    types: [.png, .jpg, .jpeg, .webp, .gif]
+    output: lib/core/app_config/spider/app_images.dart
