@@ -1,6 +1,7 @@
-/*
-
-! For app on CUBIT/BLoC use instead providers next:
+import 'package:core/base_modules/theme/module_core/app_theme_preferences.dart';
+import 'package:core/base_modules/theme/module_core/theme_variants.dart';
+import 'package:core/base_modules/theme/text_theme/text_theme_factory.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 /// 🎨 [AppThemeCubit] — manages [ThemePreferences] (theme variant + font)
 /// ✅ Uses [HydratedCubit] for state persistence
@@ -33,10 +34,9 @@ final class AppThemeCubit extends HydratedCubit<ThemePreferences> {
 
   ///
   void toggleTheme() {
-    final newTheme =
-        state.theme == ThemeVariantsEnum.dark
-            ? ThemeVariantsEnum.light
-            : ThemeVariantsEnum.dark;
+    final newTheme = state.theme == ThemeVariantsEnum.dark
+        ? ThemeVariantsEnum.light
+        : ThemeVariantsEnum.dark;
     emit(state.copyWith(theme: newTheme));
   }
 
@@ -53,14 +53,8 @@ final class AppThemeCubit extends HydratedCubit<ThemePreferences> {
         orElse: () => AppFontFamily.sfPro,
       );
       return ThemePreferences(theme: theme, font: font);
-    } catch (_) {
+    } on Object catch (_) {
       return null;
     }
   }
 }
-
-
-
-
-
- */

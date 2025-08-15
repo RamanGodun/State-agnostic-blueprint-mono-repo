@@ -1,7 +1,4 @@
-/*
-
-
-import '../input_validation/validation_enums.dart';
+import 'package:core/base_modules/form_fields/input_validation/validation_enums.dart';
 
 /// 🧠 [FormValidationService] — Handles input field validation logic.
 /// ✅ Keeps Cubit clean (only state orchestration)
@@ -38,7 +35,7 @@ final class FormValidationService {
     );
   }
 
-  /// 🔁 Syncs confirm password with updated [password]
+  /// 🔁 Syncs confirm password with updated 'password field'
   ConfirmPasswordInputValidation syncConfirmWithPassword({
     required ConfirmPasswordInputValidation currentConfirm,
     required String newPassword,
@@ -48,8 +45,3 @@ final class FormValidationService {
 
   //
 }
-
-
-
-
- */

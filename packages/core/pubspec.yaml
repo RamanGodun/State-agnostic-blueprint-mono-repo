@@ -26,11 +26,13 @@ dependencies:
   firebase_crashlytics: ">=5.0.0 <6.0.0"
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.1
   flutter_hooks: ^0.21.3
   flutter_riverpod: ^2.6.1
   formz: ^0.8.0
   get_storage: ^2.1.1
   go_router: ^16.1.0
+  hydrated_bloc: ^10.1.1
   intl: ^0.20.2
   logger: ^2.3.0
   meta: ^1.12.0
