@@ -3,7 +3,6 @@ import 'package:get_storage/get_storage.dart' show GetStorage;
 
 /// 💾 [ILocalStorage] — Abstraction to decouple startup logic and enable mocking in tests.
 //
-// ignore: one_member_abstracts because must be flexibility of local storages
 abstract interface class ILocalStorage {
   ///--------------------------------
   //

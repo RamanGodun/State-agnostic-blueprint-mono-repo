@@ -10,7 +10,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// 📦💾 [IRemoteDataBase] — Abstraction to decouple startup logic and enable mocking in tests.
 //
-// ignore: one_member_abstracts because must be flexibility of remote storages
 abstract interface class IRemoteDataBase {
   ///---------------------------------
   //

@@ -3,12 +3,12 @@ import 'package:app_on_riverpod/core/shared_presentation/pages/home_page.dart'
     show HomePage;
 import 'package:app_on_riverpod/core/shared_presentation/pages/page_not_found.dart'
     show PageNotFound;
-import 'package:app_on_riverpod/pages/change_password_page.dart';
-import 'package:app_on_riverpod/pages/profile_page.dart' show ProfilePage;
-import 'package:app_on_riverpod/pages/reset_passwor_page.dart';
-import 'package:app_on_riverpod/pages/sign_in_page.dart';
-import 'package:app_on_riverpod/pages/sign_up_page.dart';
-import 'package:app_on_riverpod/pages/verify_email_page.dart';
+import 'package:app_on_riverpod/features/auth/presentation/sign_in/sign_in_page.dart';
+import 'package:app_on_riverpod/features/auth/presentation/sign_up/sign_up__page.dart';
+import 'package:app_on_riverpod/features/change_or_reset_password/presentation/change_password/change_password_page.dart';
+import 'package:app_on_riverpod/features/change_or_reset_password/presentation/reset_password/reset_password_page.dart';
+import 'package:app_on_riverpod/features/email_verification/presentation/email_verification_page.dart';
+import 'package:app_on_riverpod/features/profile/presentation/profile_page.dart';
 import 'package:core/base_modules/navigation/utils/page_transition.dart';
 import 'package:core/shared_presentation_layer/pages_shared/splash_page.dart';
 import 'package:go_router/go_router.dart';

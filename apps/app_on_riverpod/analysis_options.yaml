@@ -14,7 +14,8 @@ linter:
     lines_longer_than_80_chars: false
     # Allows throwing as there is custom robust errors handling system
     only_throw_errors: false
-
+    #
+    one_member_abstracts: false
     #
     #
 
