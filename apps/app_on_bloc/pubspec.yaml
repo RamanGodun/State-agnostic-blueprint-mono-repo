@@ -7,6 +7,8 @@ environment:
   sdk: ^3.8.1
 
 dependencies:
+  adapter_for_apps_on_bloc:
+    path: ../../packages/adapter_for_apps_on_bloc
   app_bootstrap:
     path: ../../packages/app_bootstrap
   assets:

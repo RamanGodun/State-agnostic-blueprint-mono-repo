@@ -1,0 +1,25 @@
+name: adapter_for_apps_on_riverpod
+description: Lightweight adapters that connect core ports to Riverpod.
+
+version: 0.1.0
+publish_to: none
+
+#
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  core:
+    path: ../core
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.6.1
+
+#
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^9.0.0
