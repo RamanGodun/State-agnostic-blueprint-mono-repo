@@ -1,7 +1,7 @@
+import 'package:app_on_riverpod/core/base_modules/navigation/module_core/provider_for_go_router.dart'
+    show buildGoRouter, goRouter;
 import 'package:core/base_modules/logging/for_riverpod/riverpod_observer.dart'
     show RiverpodLogger;
-import 'package:core/base_modules/navigation/module_core/provider_for_go_router.dart'
-    show buildGoRouter, goRouter;
 import 'package:core/base_modules/overlays/overlays_dispatcher/_overlay_dispatcher.dart'
     show OverlayDispatcher;
 import 'package:core/base_modules/overlays/overlays_dispatcher/overlay_dispatcher_provider.dart'

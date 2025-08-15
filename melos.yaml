@@ -15,7 +15,10 @@ scripts:
   clean: melos exec --concurrency=1 -- "flutter clean"
   clean:deep: melos exec --concurrency=1 -- "git clean -xfd -e .idea -e .vscode" # CAREFUL: nukes untracked files
 
+  bootstrap: melos bootstrap
+
   pub:get: melos exec --concurrency=1 -- "flutter pub get"
+  pub:get:core: melos exec --scope="core" --concurrency=1 -- "flutter pub get"
   pub:upgrade: melos exec --concurrency=1 -- "flutter pub upgrade"
   pub:outdated: melos exec --concurrency=1 -- "flutter pub outdated"
   pub:deps: melos exec --concurrency=1 -- "flutter pub deps --style=compact"

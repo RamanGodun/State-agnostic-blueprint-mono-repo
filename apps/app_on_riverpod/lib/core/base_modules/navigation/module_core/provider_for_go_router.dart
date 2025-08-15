@@ -1,9 +1,10 @@
-import 'package:core/_should_be_removed_later/user_auth_provider/firebase_auth_providers.dart'
+import 'package:app_on_riverpod/app_bootstrap_and_config/firebase_config/user_auth_provider/firebase_auth_providers.dart'
     show authStateStreamProvider;
-import 'package:core/base_modules/navigation/module_core/routes_redirection_service.dart';
-import 'package:core/base_modules/navigation/routes/app_routes.dart';
+import 'package:app_on_riverpod/core/base_modules/navigation/module_core/routes_redirection_service.dart';
+import 'package:app_on_riverpod/core/base_modules/navigation/routes/app_routes.dart';
+import 'package:app_on_riverpod/core/shared_presentation/pages/page_not_found.dart'
+    show PageNotFound;
 import 'package:core/base_modules/overlays/utils/overlays_cleaner_within_navigation.dart';
-import 'package:core/shared_presentation_layer/pages_shared/page_not_found.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 

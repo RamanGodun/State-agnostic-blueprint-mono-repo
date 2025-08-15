@@ -1,4 +1,4 @@
-import 'package:core/_should_be_removed_later/di_container/read_di_x_on_context.dart';
+import 'package:app_on_riverpod/app_bootstrap_and_config/di_container/read_di_x_on_context.dart';
 import 'package:core/base_modules/overlays/overlays_dispatcher/overlay_dispatcher_provider.dart';
 import 'package:flutter/material.dart';
 

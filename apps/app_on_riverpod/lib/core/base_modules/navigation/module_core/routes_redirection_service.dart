@@ -1,4 +1,4 @@
-import 'package:core/base_modules/navigation/routes/app_routes.dart';
+import 'package:app_on_riverpod/core/base_modules/navigation/routes/app_routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';

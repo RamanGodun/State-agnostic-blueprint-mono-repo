@@ -1,4 +1,3 @@
-import 'package:core/base_modules/navigation/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,7 +20,7 @@ extension NavigationX on BuildContext {
         queryParameters: queryParameters,
       );
     } on Object catch (_) {
-      GoRouter.of(this).go(RoutesNames.pageNotFound);
+      GoRouter.of(this).go('pageNotFound');
     }
   }
 
@@ -38,7 +37,7 @@ extension NavigationX on BuildContext {
         queryParameters: queryParameters,
       );
     } on Object catch (_) {
-      GoRouter.of(this).go(RoutesNames.pageNotFound);
+      GoRouter.of(this).go('pageNotFound');
     }
   }
 

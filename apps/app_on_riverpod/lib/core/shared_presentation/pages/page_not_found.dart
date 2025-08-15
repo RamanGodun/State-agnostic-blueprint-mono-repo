@@ -1,6 +1,6 @@
+import 'package:app_on_riverpod/core/base_modules/navigation/routes/app_routes.dart';
 import 'package:core/base_modules/localization/generated/locale_keys.g.dart';
 import 'package:core/base_modules/localization/module_widgets/text_widget.dart';
-import 'package:core/base_modules/navigation/routes/app_routes.dart';
 import 'package:core/base_modules/navigation/utils/extensions/navigation_x_on_context.dart';
 import 'package:core/base_modules/theme/ui_constants/_app_constants.dart'
     show AppSpacing;
